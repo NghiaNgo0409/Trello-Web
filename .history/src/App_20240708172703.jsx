@@ -3,8 +3,6 @@ import AccessAlarmIcon from '@mui/icons-material/AccessAlarm'
 import ThreeDRotation from '@mui/icons-material/ThreeDRotation'
 import HomeIcon from '@mui/icons-material/Home'
 import LightModeIcon from '@mui/icons-material/LightMode'
-import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness'
-import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined'
 
 import { pink } from '@mui/material/colors'
 import { useColorScheme } from '@mui/material/styles'
@@ -13,7 +11,6 @@ import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
-import Box from '@mui/material/Box'
 
 function ModeSelect() {
   const { mode, setMode } = useColorScheme()
@@ -32,24 +29,9 @@ function ModeSelect() {
         label="Mode"
         onChange={handleChange}
       >
-        <MenuItem value={'light'}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <LightModeIcon />
-            Light
-          </Box>
-        </MenuItem>
-        <MenuItem value={'dark'}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <DarkModeOutlinedIcon />
-            Dark
-          </Box>
-        </MenuItem>
-        <MenuItem value={'system'}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <SettingsBrightnessIcon />
-            System
-          </Box>
-        </MenuItem>
+        <MenuItem value={'light'}>Light</MenuItem>
+        <MenuItem value={'dark'}>Dark</MenuItem>
+        <MenuItem value={'system'}>System</MenuItem>
       </Select>
     </FormControl>
   )
