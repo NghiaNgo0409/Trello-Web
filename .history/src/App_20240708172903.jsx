@@ -13,7 +13,6 @@ import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
-import Box from '@mui/material/Box'
 
 function ModeSelect() {
   const { mode, setMode } = useColorScheme()
@@ -33,23 +32,15 @@ function ModeSelect() {
         onChange={handleChange}
       >
         <MenuItem value={'light'}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <LightModeIcon />
-            Light
-          </Box>
+          <LightModeIcon />
+          Light
         </MenuItem>
         <MenuItem value={'dark'}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <DarkModeOutlinedIcon />
-            Dark
-          </Box>
+          <DarkModeOutlinedIcon />
+          Dark
         </MenuItem>
-        <MenuItem value={'system'}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <SettingsBrightnessIcon />
-            System
-          </Box>
-        </MenuItem>
+        <SettingsBrightnessIcon />
+        <MenuItem value={'system'}>System</MenuItem>
       </Select>
     </FormControl>
   )
