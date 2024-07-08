@@ -3,26 +3,15 @@ import AccessAlarmIcon from '@mui/icons-material/AccessAlarm'
 import ThreeDRotation from '@mui/icons-material/ThreeDRotation'
 import HomeIcon from '@mui/icons-material/Home'
 import { pink } from '@mui/material/colors'
-import { useColorScheme } from '@mui/material/styles'
-
-function ModeToggle() {
-  const { mode, setMode } = useColorScheme()
-  return (
-    <Button
-      onClick={() => {
-        setMode(mode === 'light' ? 'dark' : 'light')
-      }}
-    >
-      {mode === 'light' ? 'Turn dark' : 'Turn light'}
-    </Button>
-  )
-}
+import {
+  Experimental_CssVarsProvider as CssVarsProvider,
+  experimental_extendTheme as extendTheme,
+  useColorScheme
+} from '@mui/material/styles'
 
 function App() {
   return (
     <>
-      <ModeToggle />
-      <br></br>
       <div>NghiaNgo</div>
       <Button variant="text">Text</Button>
       <Button variant="contained">Contained</Button>

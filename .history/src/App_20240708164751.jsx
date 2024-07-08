@@ -21,7 +21,6 @@ function ModeToggle() {
 function App() {
   return (
     <>
-      <ModeToggle />
       <br></br>
       <div>NghiaNgo</div>
       <Button variant="text">Text</Button>
