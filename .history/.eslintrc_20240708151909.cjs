@@ -20,14 +20,13 @@ module.exports = {
     'react/display-name': 0,
 
     // MUI
-    'no-restricted-imports': [
-      'error',
+    "no-restricted-imports": [
+      "error",
       {
-        patterns: ['@mui/*/*/*']
+        "patterns": ["@mui/*/*/*"]
       }
-    ],
+    ]
 
-    // Common
     'no-console': 1,
     'no-lonely-if': 1,
     'no-unused-vars': 1,
