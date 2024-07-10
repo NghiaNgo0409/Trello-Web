@@ -84,8 +84,8 @@ function App() {
           sx={{
             height: (theme) =>
               `calc(
-                100vh - ${theme.trello.appBarHeight} - ${theme.trello.boardBarHeight}
-              )`,
+                100vh - ${theme.trello.appBarHeight} - ${theme.trello.boardBarHeight}`
+              ),
             backgroundColor: 'primary.light',
             display: 'flex',
             alignItems: 'center'
