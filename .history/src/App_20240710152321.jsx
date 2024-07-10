@@ -80,19 +80,7 @@ function App() {
         >
           Board Bar
         </Box>
-        <Box
-          sx={{
-            height: (theme) =>
-              `calc(
-                100vh - ${theme.trello.appBarHeight} - ${theme.trello.boardBarHeight}
-              )`,
-            backgroundColor: 'primary.light',
-            display: 'flex',
-            alignItems: 'center'
-          }}
-        >
-          Board Content
-        </Box>
+        <Box></Box>
       </Container>
     </>
   )
