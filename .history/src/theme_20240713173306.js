@@ -33,9 +33,7 @@ const theme = extendTheme({
             backgroundColor: '#bdc3c7',
             borderRadius: '8px'
           },
-          '*::-webkit-scrollbar-thumb:hover': {
-            backgroundColor: '#00b894'
-          }
+          '*::-webkit-scrollbar-thumb::hover': {}
         }
       }
     },
