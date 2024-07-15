@@ -8,8 +8,6 @@ import FilterListIcon from '@mui/icons-material/FilterList'
 import Avatar from '@mui/material/Avatar'
 import AvatarGroup from '@mui/material/AvatarGroup'
 import Tooltip from '@mui/material/Tooltip'
-import Button from '@mui/material/Button'
-import PersonAddIcon from '@mui/icons-material/PersonAdd'
 
 const MENU_STYLES = {
   color: 'primary.main',
@@ -72,9 +70,7 @@ function BoardBar() {
       </Box>
 
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <Button variant="outlined" startIcon=<PersonAddIcon />>
-          Invite
-        </Button>
+        <Button variant="outlined">CREATE</Button>
         <AvatarGroup
           max={7}
           sx={{
