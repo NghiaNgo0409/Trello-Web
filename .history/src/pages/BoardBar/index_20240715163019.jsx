@@ -87,8 +87,8 @@ function BoardBar() {
         </Button>
         <AvatarGroup
           max={7}
+          gap: {10}
           sx={{
-            gap: '10px',
             '& .MuiAvatar-root': {
               width: 34,
               height: 34,

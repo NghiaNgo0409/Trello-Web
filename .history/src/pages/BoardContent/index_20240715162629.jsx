@@ -8,10 +8,11 @@ function BoardContent() {
           `calc(
     100vh - ${theme.trello.appBarHeight} - ${theme.trello.boardBarHeight}
   )`,
-        backgroundColor: (theme) =>
-          theme.palette.mode === 'dark' ? '#34495e' : '#1976d2',
+        backgroundColor: 'primary.light',
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: (theme) =>
+          theme.palette.mode === 'dark' ? '#34495e' : '#1976d2'
       }}
     >
       Board Content

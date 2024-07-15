@@ -12,12 +12,12 @@ import Button from '@mui/material/Button'
 import PersonAddIcon from '@mui/icons-material/PersonAdd'
 
 const MENU_STYLES = {
-  color: 'white',
-  bgcolor: 'transparent',
+  color: 'primary.main',
+  bgcolor: 'white',
   paddingX: '5px',
   border: 'none',
   '& .MuiSvgIcon-root': {
-    color: 'white'
+    color: 'primary.main'
   },
   '&:hover': {
     bgcolor: 'primary.50'
@@ -74,26 +74,16 @@ function BoardBar() {
       </Box>
 
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <Button
-          sx={{
-            color: 'white',
-            borderColor: 'white',
-            '&:hover': { borderColor: 'white' }
-          }}
-          variant="outlined"
-          startIcon=<PersonAddIcon />
-        >
+        <Button variant="outlined" startIcon=<PersonAddIcon />>
           Invite
         </Button>
         <AvatarGroup
           max={7}
           sx={{
-            gap: '10px',
             '& .MuiAvatar-root': {
               width: 34,
               height: 34,
-              fontSize: 16,
-              border: 'none'
+              fontSize: 16
             }
           }}
         >

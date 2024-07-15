@@ -2,7 +2,6 @@ import Box from '@mui/material/Box'
 import ModeSelect from '../ModeSelect'
 import AppsIcon from '@mui/icons-material/Apps'
 import { ReactComponent as TrelloIcon } from '~/assets/trello.svg'
-import { useState } from 'react'
 import SvgIcon from '@mui/material/SvgIcon'
 import Typography from '@mui/material/Typography'
 import Workspace from './Menus/Workspace'
@@ -17,12 +16,8 @@ import Badge from '@mui/material/Badge'
 import Tooltip from '@mui/material/Tooltip'
 import Profile from './Menus/Profile'
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd'
-import InputAdornment from '@mui/material/InputAdornment'
-import SearchIcon from '@mui/icons-material/Search'
-import CloseIcon from '@mui/icons-material/Close'
 
 function AppBar() {
-  const [searchValue, setSearchValue] = useState('')
   return (
     <Box
       px={2}
@@ -81,48 +76,11 @@ function AppBar() {
         <TextField
           id="outlined-search"
           label="Search field"
-          type="text"
+          type="search"
           size="small"
-          value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
           sx={{
             minWidth: 150,
-            maxWidth: 180,
-            '& label': {
-              color: 'white'
-            },
-            '& input': {
-              color: 'white'
-            },
-            '& label.Mui-focused': {
-              color: 'white'
-            },
-            '.MuiOutlinedInput-root': {
-              '& fieldset': {
-                borderColor: 'white'
-              },
-              '&:hover fieldset': {
-                borderColor: 'white'
-              },
-              '&.Mui-focused fieldset': {
-                borderColor: 'white'
-              }
-            }
-          }}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon sx={{ color: 'white' }} />
-              </InputAdornment>
-            ),
-            endAdornment: (
-              <InputAdornment position="start">
-                <CloseIcon
-                  sx={{ color: 'white', cursor: 'pointer' }}
-                  onClick={(e) => setSearchValue('')}
-                />
-              </InputAdornment>
-            )
+            color: 'white'
           }}
         />
 
