@@ -30,11 +30,11 @@ const theme = extendTheme({
             height: '8px'
           },
           '*::-webkit-scrollbar-thumb': {
-            backgroundColor: '#dcdde1',
+            backgroundColor: '#bdc3c7',
             borderRadius: '8px'
           },
           '*::-webkit-scrollbar-thumb:hover': {
-            backgroundColor: '#white'
+            backgroundColor: '#00b894'
           }
         }
       }
@@ -52,9 +52,9 @@ const theme = extendTheme({
     MuiInputLabel: {
       styleOverrides: {
         // Name of the slot
-        // root: ({ theme }) => ({
-        //   color: theme.palette.primary.main
-        // })
+        root: ({ theme }) => ({
+          color: theme.palette.primary.main
+        })
       }
     },
     MuiOutlinedInput: {

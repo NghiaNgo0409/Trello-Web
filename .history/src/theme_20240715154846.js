@@ -30,11 +30,11 @@ const theme = extendTheme({
             height: '8px'
           },
           '*::-webkit-scrollbar-thumb': {
-            backgroundColor: '#dcdde1',
+            backgroundColor: '#bdc3c7',
             borderRadius: '8px'
           },
           '*::-webkit-scrollbar-thumb:hover': {
-            backgroundColor: '#white'
+            backgroundColor: '#00b894'
           }
         }
       }
@@ -61,15 +61,15 @@ const theme = extendTheme({
       styleOverrides: {
         // Name of the slot
         root: ({ theme }) => ({
-          // color: theme.palette.primary.main,
-          // '.MuiOutlinedInput-notchedOutline': {
-          //   borderColor: theme.palette.primary.light
-          // },
-          // '&:hover': {
-          //   '.MuiOutlinedInput-notchedOutline': {
-          //     borderColor: theme.palette.primary.light
-          //   }
-          // }
+          color: theme.palette.primary.main,
+          '.MuiOutlinedInput-notchedOutline': {
+            borderColor: theme.palette.primary.light
+          },
+          '&:hover': {
+            '.MuiOutlinedInput-notchedOutline': {
+              borderColor: theme.palette.primary.light
+            }
+          }
         })
       }
     }
