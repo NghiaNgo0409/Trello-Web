@@ -37,10 +37,7 @@ function BoardBar() {
         overflowX: 'auto',
         borderBottom: '1px solid white',
         backgroundColor: (theme) =>
-          theme.palette.mode === 'dark' ? '#34495e' : '#1976d2',
-        '&::-webkit-scrollbar-track': {
-          m: 2
-        }
+          theme.palette.mode === 'dark' ? '#34495e' : '#1976d2'
       }}
     >
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
@@ -96,10 +93,10 @@ function BoardBar() {
               width: 34,
               height: 34,
               fontSize: 16,
-              border: 'none',
-              '&:first-of-type': {
-                bgcolor: '#a4b0be'
-              }
+              border: 'none'
+            }
+            '&:first-of-type': {
+              bgcolor: 'white'
             }
           }}
         >

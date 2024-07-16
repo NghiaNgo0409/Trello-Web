@@ -51,10 +51,7 @@ function BoardContent() {
           display: 'flex',
           alignItems: 'flex-start',
           overflowX: 'auto',
-          overflowY: 'hidden',
-          '&::-webkit-scrollbar-track': {
-            m: 2
-          }
+          overflowY: 'hidden'
         }}
       >
         {/* Box column */}
