@@ -8,8 +8,7 @@ const BOARD_CONTENT_HEIGHT = `calc(100vh - ${APP_BAR_HEIGHT} - ${BOARD_BAR_HEIGH
 const theme = extendTheme({
   trello: {
     appBarHeight: APP_BAR_HEIGHT,
-    boardBarHeight: BOARD_BAR_HEIGHT,
-    boardContentHeight: BOARD_CONTENT_HEIGHT
+    boardBarHeight: 'BOARD_BAR_HEIGHT'
   },
   colorSchemes: {
     // light: {
@@ -38,7 +37,7 @@ const theme = extendTheme({
             borderRadius: '8px'
           },
           '*::-webkit-scrollbar-thumb:hover': {
-            backgroundColor: 'white'
+            backgroundColor: '#white'
           }
         }
       }

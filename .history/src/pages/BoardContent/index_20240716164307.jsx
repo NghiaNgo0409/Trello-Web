@@ -39,7 +39,6 @@ function BoardContent() {
   return (
     <Box
       sx={{
-        p: '10px 0',
         height: (theme) => theme.trello.boardContentHeight,
         backgroundColor: (theme) =>
           theme.palette.mode === 'dark' ? '#34495e' : '#1976d2'
@@ -51,10 +50,7 @@ function BoardContent() {
           display: 'flex',
           alignItems: 'flex-start',
           overflowX: 'auto',
-          overflowY: 'hidden',
-          '&::-webkit-scrollbar-track': {
-            m: 2
-          }
+          overflowY: 'hidden'
         }}
       >
         {/* Box column */}
