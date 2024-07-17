@@ -11,9 +11,7 @@ const theme = extendTheme({
   trello: {
     appBarHeight: APP_BAR_HEIGHT,
     boardBarHeight: BOARD_BAR_HEIGHT,
-    boardContentHeight: BOARD_CONTENT_HEIGHT,
-    headerHeight: HEADER_HEIGHT,
-    footerHeight: FOOTER_HEIGHT
+    boardContentHeight: BOARD_CONTENT_HEIGHT
   },
   colorSchemes: {
     // light: {
