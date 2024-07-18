@@ -13,9 +13,7 @@ function BoardContent({ board }) {
           theme.palette.mode === 'dark' ? '#34495e' : '#1976d2'
       }}
     >
-      <ListColumns
-        columns={mapOrder(board?.columns, board?.columnOrderIds, '_id')}
-      />
+      <ListColumns columns={mapOrder(board?.columns, board?.)} />
     </Box>
   )
 }
