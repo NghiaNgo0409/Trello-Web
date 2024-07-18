@@ -5,11 +5,12 @@ import BoardContent from '../BoardContent/BoardContent'
 import { mockData } from '~/apis/mockData'
 
 function Board() {
+  console.log(mockData)
   return (
     <Container disableGutters maxWidth={false} sx={{ height: '100vh' }}>
       <AppBar></AppBar>
-      <BoardBar board={mockData?.board}></BoardBar>
-      <BoardContent board={mockData?.board}></BoardContent>
+      <BoardBar board={mockData.board}></BoardBar>
+      <BoardContent></BoardContent>
     </Container>
   )
 }

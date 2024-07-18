@@ -18,9 +18,9 @@ function ListColumns({ columns }) {
       }}
     >
       {/* Box column */}
-      {columns.map((column) => (
-        <Column key={column?._id} column={column} />
-      ))}
+      columns.map(column => <Column column={columns?.column} />)
+      <Column />
+      <Column />
       {/* Add new column */}
       <Box
         sx={{

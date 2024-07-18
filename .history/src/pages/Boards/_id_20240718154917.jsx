@@ -7,9 +7,10 @@ import { mockData } from '~/apis/mockData'
 function Board() {
   return (
     <Container disableGutters maxWidth={false} sx={{ height: '100vh' }}>
+      console.log(mockData)
       <AppBar></AppBar>
-      <BoardBar board={mockData?.board}></BoardBar>
-      <BoardContent board={mockData?.board}></BoardContent>
+      <BoardBar board={mockData.board}></BoardBar>
+      <BoardContent></BoardContent>
     </Container>
   )
 }
