@@ -1,24 +1,13 @@
 import Box from '@mui/material/Box'
 import ListColumns from './ListColumns/ListColumns'
 import { mapOrder } from '~/utils/sorts'
-import {
-  DndContext,
-  useSensor,
-  useSensors,
-  MouseSensor,
-  TouchSensor
-} from '@dnd-kit/core'
+import { DndContext, useSensor, useSensors, PointerSensor } from '@dnd-kit/core'
 import { useEffect, useState } from 'react'
 import { arrayMove } from '@dnd-kit/sortable'
 
 function BoardContent({ board }) {
-  const mouseSensor = useSensor(MouseSensor, {
-    activationConstraint: { distance: 10 }
-  })
-  const touchSensor = useSensor(TouchSensor, {
-    activationConstraint: { delay: 250, tolerance: 5 }
-  })
-  const sensors = useSensors(mouseSensor, touchSensor)
+  const pointerSensor = useSensor(PointerSensor, activationConstraint: {})
+  const sensors = useSensors(pointerSensor)
   const [orderedColumns, setOrderedColumns] = useState([])
 
   useEffect(() => {

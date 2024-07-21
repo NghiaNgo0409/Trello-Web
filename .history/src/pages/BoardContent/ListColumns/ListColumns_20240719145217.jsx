@@ -9,10 +9,7 @@ import {
 
 function ListColumns({ columns }) {
   return (
-    <SortableContext
-      items={columns?.map((column) => column._id)}
-      strategy={horizontalListSortingStrategy}
-    >
+    <SortableContext items={columns} strategy={horizontalListSortingStrategy}>
       <Box
         sx={{
           height: '100%',
