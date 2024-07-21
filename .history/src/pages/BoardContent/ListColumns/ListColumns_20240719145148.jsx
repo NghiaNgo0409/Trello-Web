@@ -2,17 +2,11 @@ import Box from '@mui/material/Box'
 import Column from './Column/Column'
 import Button from '@mui/material/Button'
 import NoteAddIcon from '@mui/icons-material/NoteAdd'
-import {
-  horizontalListSortingStrategy,
-  SortableContext
-} from '@dnd-kit/sortable'
+import { SortableContext } from '@dnd-kit/sortable'
 
 function ListColumns({ columns }) {
   return (
-    <SortableContext
-      items={columns?.map((column) => column._id)}
-      strategy={horizontalListSortingStrategy}
-    >
+    <SortableContext>
       <Box
         sx={{
           height: '100%',

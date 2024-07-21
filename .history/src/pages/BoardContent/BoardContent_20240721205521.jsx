@@ -5,6 +5,7 @@ import {
   DndContext,
   useSensor,
   useSensors,
+  PointerSensor,
   MouseSensor,
   TouchSensor
 } from '@dnd-kit/core'

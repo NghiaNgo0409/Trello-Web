@@ -26,6 +26,7 @@ function Column({ column }) {
     useSortable({ id: column._id, data: column })
 
   const dndKitDragStyles = {
+    touchAction: 'none',
     transform: CSS.Translate.toString(transform),
     transition
   }

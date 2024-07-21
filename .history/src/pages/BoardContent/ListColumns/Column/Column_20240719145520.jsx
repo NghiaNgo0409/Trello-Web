@@ -23,10 +23,10 @@ import { CSS } from '@dnd-kit/utilities'
 
 function Column({ column }) {
   const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({ id: column._id, data: column })
+    useSortable({ id: column._id })
 
-  const dndKitDragStyles = {
-    transform: CSS.Translate.toString(transform),
+  const style = {
+    transform: CSS.Transform.toString(transform),
     transition
   }
 
@@ -40,10 +40,6 @@ function Column({ column }) {
   }
   return (
     <Box
-      ref={setNodeRef}
-      style={dndKitDragStyles}
-      {...attributes}
-      {...listeners}
       sx={{
         minWidth: '300px',
         maxWidth: '300px',
