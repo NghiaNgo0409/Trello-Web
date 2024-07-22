@@ -27,8 +27,7 @@ function Column({ column }) {
 
   const dndKitDragStyles = {
     transform: CSS.Translate.toString(transform),
-    transition,
-    height: '100%'
+    transition
   }
 
   const [anchorEl, setAnchorEl] = useState(null)

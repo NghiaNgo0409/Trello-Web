@@ -12,7 +12,7 @@ import { CSS } from '@dnd-kit/utilities'
 
 function Card({ card }) {
   const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({ id: card._id, data: card })
+    useSortable({ id: column._id, data: column })
 
   const dndKitDragStyles = {
     transform: CSS.Translate.toString(transform),
@@ -26,10 +26,6 @@ function Card({ card }) {
     !!card?.attachments?.length
   return (
     <MuiCard
-      ref={setNodeRef}
-      style={dndKitDragStyles}
-      {...attributes}
-      {...listeners}
       sx={{
         cursor: 'pointer',
         boxShadow: '0 1px 1px rgba(0, 0, 0, 0.2)',

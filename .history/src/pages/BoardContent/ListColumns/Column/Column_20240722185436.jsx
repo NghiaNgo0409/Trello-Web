@@ -27,8 +27,7 @@ function Column({ column }) {
 
   const dndKitDragStyles = {
     transform: CSS.Translate.toString(transform),
-    transition,
-    height: '100%'
+    transition
   }
 
   const [anchorEl, setAnchorEl] = useState(null)
@@ -40,8 +39,11 @@ function Column({ column }) {
     setAnchorEl(null)
   }
   return (
-    <div ref={setNodeRef} style={dndKitDragStyles} {...attributes}>
+    <div>
       <Box
+        ref={setNodeRef}
+        style={dndKitDragStyles}
+        {...attributes}
         {...listeners}
         sx={{
           minWidth: '300px',
