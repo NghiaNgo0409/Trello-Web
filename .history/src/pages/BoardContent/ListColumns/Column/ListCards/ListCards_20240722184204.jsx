@@ -1,12 +1,12 @@
 import Box from '@mui/material/Box'
 import Card from './Card/Card'
-import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
+import { SortableContext } from '@dnd-kit/sortable'
 
 function ListCards({ cards }) {
   return (
     <SortableContext
-      items={cards?.map((card) => card._id)}
-      strategy={verticalListSortingStrategy}
+      items={columns?.map((column) => column._id)}
+      strategy={horizontalListSortingStrategy}
     >
       <Box
         sx={{

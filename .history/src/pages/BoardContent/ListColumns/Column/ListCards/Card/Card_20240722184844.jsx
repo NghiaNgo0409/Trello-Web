@@ -26,10 +26,6 @@ function Card({ card }) {
     !!card?.attachments?.length
   return (
     <MuiCard
-      ref={setNodeRef}
-      style={dndKitDragStyles}
-      {...attributes}
-      {...listeners}
       sx={{
         cursor: 'pointer',
         boxShadow: '0 1px 1px rgba(0, 0, 0, 0.2)',
