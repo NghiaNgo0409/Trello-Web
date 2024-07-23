@@ -22,7 +22,7 @@ const ACTIVE_DRAG_ITEM_TYPE = {
 
 function BoardContent({ board }) {
   const dropAnimation = {
-    sideEffects: defaultDropAnimationSideEffects({
+    sideEffect: defaultDropAnimationSideEffects({
       styles: { active: { opacity: '0.5' } }
     })
   }

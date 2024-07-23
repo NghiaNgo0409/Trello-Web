@@ -22,7 +22,7 @@ const ACTIVE_DRAG_ITEM_TYPE = {
 
 function BoardContent({ board }) {
   const dropAnimation = {
-    sideEffects: defaultDropAnimationSideEffects({
+    sideEffect: defaultDropAnimationSideEffects({
       styles: { active: { opacity: '0.5' } }
     })
   }
@@ -85,7 +85,7 @@ function BoardContent({ board }) {
         }}
       >
         <ListColumns columns={orderedColumns} />
-        <DragOverlay dropAnimation={dropAnimation}>
+        <DragOverlay>
           {!activeDragItemType && null}
           {activeDragItemType === ACTIVE_DRAG_ITEM_TYPE.COLUMN && (
             <Column column={activeDragItemData} />

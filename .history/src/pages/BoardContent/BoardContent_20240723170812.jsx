@@ -7,13 +7,12 @@ import {
   useSensors,
   MouseSensor,
   TouchSensor,
-  DragOverlay,
-  defaultDropAnimationSideEffects
+  DragOverlay
 } from '@dnd-kit/core'
 import { useEffect, useState } from 'react'
-import { arrayMove, defaultAnimateLayoutChanges } from '@dnd-kit/sortable'
+import { arrayMove } from '@dnd-kit/sortable'
 import Column from './ListColumns/Column/Column'
-import Card from './ListColumns/Column/ListCards/Card/Card'
+import Card from '@mui/material'
 
 const ACTIVE_DRAG_ITEM_TYPE = {
   COLUMN: 'ACTIVE_DRAG_ITEM_COLUMN',
@@ -21,11 +20,6 @@ const ACTIVE_DRAG_ITEM_TYPE = {
 }
 
 function BoardContent({ board }) {
-  const dropAnimation = {
-    sideEffects: defaultDropAnimationSideEffects({
-      styles: { active: { opacity: '0.5' } }
-    })
-  }
   const mouseSensor = useSensor(MouseSensor, {
     activationConstraint: { distance: 10 }
   })
@@ -46,7 +40,7 @@ function BoardContent({ board }) {
   const handleDragStart = (event) => {
     setActiveDragItemID(event?.active?.id)
     setActiveDragItemType(
-      event?.active?.data?.current?.columnId
+      event?.active?.current?.columnId
         ? ACTIVE_DRAG_ITEM_TYPE.CARD
         : ACTIVE_DRAG_ITEM_TYPE.COLUMN
     )
@@ -85,7 +79,7 @@ function BoardContent({ board }) {
         }}
       >
         <ListColumns columns={orderedColumns} />
-        <DragOverlay dropAnimation={dropAnimation}>
+        <DragOverlay>
           {!activeDragItemType && null}
           {activeDragItemType === ACTIVE_DRAG_ITEM_TYPE.COLUMN && (
             <Column column={activeDragItemData} />
