@@ -35,7 +35,7 @@ function Column({ column }) {
     transform: CSS.Translate.toString(transform),
     transition,
     height: '100%',
-    opacity: isDragging ? 0.5 : 1
+    opacity: isDragging ? 0.5 : undefined
   }
 
   const [anchorEl, setAnchorEl] = useState(null)
@@ -47,7 +47,7 @@ function Column({ column }) {
     setAnchorEl(null)
   }
   return (
-    <div ref={setNodeRef} style={dndKitDragStyles} {...attributes}>
+    <div ref={setNodeRef} style={dndKitDragStyles} {...attributes} {isDragging}>
       <Box
         {...listeners}
         sx={{

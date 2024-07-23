@@ -35,7 +35,7 @@ function Column({ column }) {
     transform: CSS.Translate.toString(transform),
     transition,
     height: '100%',
-    opacity: isDragging ? 0.5 : 1
+    opacity: isDragging ? 0.5 : undefined
   }
 
   const [anchorEl, setAnchorEl] = useState(null)

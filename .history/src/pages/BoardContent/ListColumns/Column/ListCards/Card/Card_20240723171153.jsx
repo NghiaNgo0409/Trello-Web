@@ -23,7 +23,7 @@ function Card({ card }) {
   const dndKitDragStyles = {
     transform: CSS.Translate.toString(transform),
     transition,
-    opacity: isDragging ? 0.5 : 1
+    opacity: isDragging ? 0.5 : undefined
   }
 
   const shouldShowCardAction = () =>

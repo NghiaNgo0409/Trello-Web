@@ -47,7 +47,7 @@ function Column({ column }) {
     setAnchorEl(null)
   }
   return (
-    <div ref={setNodeRef} style={dndKitDragStyles} {...attributes}>
+    <div ref={setNodeRef} style={dndKitDragStyles} {...attributes} {isDragging}>
       <Box
         {...listeners}
         sx={{
