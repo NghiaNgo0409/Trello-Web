@@ -11,14 +11,14 @@ import {
   defaultDropAnimationSideEffects,
   closestCorners,
   pointerWithin,
+  rectIntersection,
   getFirstCollision
 } from '@dnd-kit/core'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { arrayMove } from '@dnd-kit/sortable'
+import { arrayMove, defaultAnimateLayoutChanges } from '@dnd-kit/sortable'
 import Column from './ListColumns/Column/Column'
 import Card from './ListColumns/Column/ListCards/Card/Card'
-import { cloneDeep, isEmpty } from 'lodash'
-import { generatePlaceholderCard } from '~/utils/formatters'
+import { cloneDeep } from 'lodash'
 
 const ACTIVE_DRAG_ITEM_TYPE = {
   COLUMN: 'ACTIVE_DRAG_ITEM_COLUMN',
@@ -58,9 +58,9 @@ function BoardContent({ board }) {
       // Nếu không có va chạm thì không xử lý phần code dưới
       if (!pointerCollisions.length) return
 
-      // const intersections = !!pointerCollisions?.length
-      //   ? pointerCollisions
-      //   : rectIntersection(args)
+      const intersections = !!pointerCollisions?.length
+        ? pointerCollisions
+        : rectIntersection(args)
 
       // Tìm overID đầu tiên trong các va chạm
       let overID = getFirstCollision(pointerCollisions, 'id')
@@ -166,10 +166,6 @@ function BoardContent({ board }) {
           nextActiveColumn.cards = nextActiveColumn.cards.filter(
             (card) => card._id !== activeDragCardID
           )
-          // Nếu vừa kéo card đi mà column rỗng thì thêm placeholder card vào để giữ chỗ, fix bug lỗi không kéo card vào được khi column rỗng
-          if (isEmpty(nextActiveColumn.cards)) {
-            nextActiveColumn.cards = [generatePlaceholderCard(nextActiveColumn)]
-          }
           // Cập nhật lại cardOrderIds của cột
           nextActiveColumn.cardOrderIds = nextActiveColumn.cards.map(
             (card) => card._id
@@ -180,10 +176,6 @@ function BoardContent({ board }) {
           // Loại bỏ thẻ được kéo có thể đã được thêm vào trước đó
           nextOverColumn.cards = nextOverColumn.cards.filter(
             (card) => card._id !== activeDragCardID
-          )
-          // Xóa đi các placeholder card đã tồn tại để tránh rò rỉ dữ liệu
-          nextOverColumn.cards = nextOverColumn.cards.filter(
-            (card) => !card?.FE_PlaceholderCard
           )
           // Thêm thẻ được kéo vào cột mới (over column)
           nextOverColumn.cards = nextOverColumn.cards.toSpliced(

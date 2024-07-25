@@ -11,10 +11,11 @@ import {
   defaultDropAnimationSideEffects,
   closestCorners,
   pointerWithin,
+  rectIntersection,
   getFirstCollision
 } from '@dnd-kit/core'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { arrayMove } from '@dnd-kit/sortable'
+import { arrayMove, defaultAnimateLayoutChanges } from '@dnd-kit/sortable'
 import Column from './ListColumns/Column/Column'
 import Card from './ListColumns/Column/ListCards/Card/Card'
 import { cloneDeep, isEmpty } from 'lodash'
