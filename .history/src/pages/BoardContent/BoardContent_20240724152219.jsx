@@ -134,7 +134,7 @@ function BoardContent({ board }) {
           nextOverColumn.cards = nextOverColumn.cards.toSpliced(
             newCardIndex,
             0,
-            { ...activeDragCardData, columnId: nextOverColumn._id }
+            activeDragCardData
           )
           // Cập nhật lại cardOrderIds của cột
           nextOverColumn.cardOrderIds = nextOverColumn.cards.map(
@@ -158,6 +158,7 @@ function BoardContent({ board }) {
       // Xác định column của thẻ được kéo và thẻ được thả
       const activeColumn = findColumnByCardID(activeDragItemID)
       const overColumn = findColumnByCardID(overDragCardID)
+      console.log('activeColumn: ', activeColumn)
 
       if (!activeColumn || !overColumn) return
 

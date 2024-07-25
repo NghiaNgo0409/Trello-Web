@@ -40,8 +40,8 @@ function BoardContent({ board }) {
   const [activeDragItemID, setActiveDragItemID] = useState(null)
   const [activeDragItemType, setActiveDragItemType] = useState(null)
   const [activeDragItemData, setActiveDragItemData] = useState(null)
-  // const [oldColumnWhenDraggingCard, setOldColumnWhenDraggingCard] =
-  //   useState(null)
+  const [oldColumnWhenDraggingCard, setOldColumnWhenDraggingCard] =
+    useState(null)
 
   useEffect(() => {
     setOrderedColumns(mapOrder(board?.columns, board?.columnOrderIds, '_id'))
@@ -61,7 +61,7 @@ function BoardContent({ board }) {
         : ACTIVE_DRAG_ITEM_TYPE.COLUMN
     )
     setActiveDragItemData(event?.active?.data?.current)
-    // setOldColumnWhenDraggingCard(findColumnByCardID(event?.active?.id))
+    setOldColumnWhenDraggingCard(findColumnByCardID(event?.active?.id))
   }
 
   const handleDragOver = (event) => {
@@ -134,7 +134,7 @@ function BoardContent({ board }) {
           nextOverColumn.cards = nextOverColumn.cards.toSpliced(
             newCardIndex,
             0,
-            { ...activeDragCardData, columnId: nextOverColumn._id }
+            activeDragCardData
           )
           // Cập nhật lại cardOrderIds của cột
           nextOverColumn.cardOrderIds = nextOverColumn.cards.map(
@@ -151,8 +151,11 @@ function BoardContent({ board }) {
 
     if (!active || !over) return
 
-    // Xử lý khi drag card
     if (activeDragItemType === ACTIVE_DRAG_ITEM_TYPE.CARD) {
+      const {
+        id: activeDragCardID,
+        data: { current: activeDragCardData }
+      } = active
       const { id: overDragCardID } = over
 
       // Xác định column của thẻ được kéo và thẻ được thả
@@ -161,10 +164,8 @@ function BoardContent({ board }) {
 
       if (!activeColumn || !overColumn) return
 
-      // Kéo card khác column thì
       if (activeColumn._id != overColumn._id) {
         return
-        // Kéo card trong cùng column thì
       } else {
         const oldCardIndex = overColumn?.cards.findIndex(
           (c) => c._id === activeDragItemID
@@ -178,18 +179,19 @@ function BoardContent({ board }) {
           newCardIndex
         )
         setOrderedColumns((prevColumns) => {
-          const targetColumn = prevColumns.find(
+          const nextColumns = cloneDeep(prevColumns)
+
+          const targetColumn = nextColumns.find(
             (column) => column._id === overColumn._id
           )
 
           targetColumn.cards = dndOrderedCards
           targetColumn.cardOrderIds = targetColumn.cards.map((card) => card._id)
-          return prevColumns
+          return nextColumns
         })
       }
     }
 
-    // Xử lý khi drag column
     if (activeDragItemType === ACTIVE_DRAG_ITEM_TYPE.COLUMN) {
       if (active.id !== over.id) {
         const oldColumnIndex = orderedColumns.findIndex(
@@ -210,7 +212,7 @@ function BoardContent({ board }) {
     setActiveDragItemID(null)
     setActiveDragItemType(null)
     setActiveDragItemData(null)
-    // setOldColumnWhenDraggingCard(null)
+    setOldColumnWhenDraggingCard(null)
   }
 
   return (
