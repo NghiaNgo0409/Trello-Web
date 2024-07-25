@@ -134,7 +134,7 @@ function BoardContent({ board }) {
           nextOverColumn.cards = nextOverColumn.cards.toSpliced(
             newCardIndex,
             0,
-            { ...activeDragCardData, columnId: nextOverColumn._id }
+            activeDragCardData
           )
           // Cập nhật lại cardOrderIds của cột
           nextOverColumn.cardOrderIds = nextOverColumn.cards.map(

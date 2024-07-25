@@ -161,6 +161,7 @@ function BoardContent({ board }) {
 
       if (!activeColumn || !overColumn) return
 
+      console.log(activeDragItemData)
       // Kéo card khác column thì
       if (activeColumn._id != overColumn._id) {
         return
