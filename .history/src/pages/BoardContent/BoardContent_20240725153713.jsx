@@ -11,10 +11,11 @@ import {
   defaultDropAnimationSideEffects,
   closestCorners,
   pointerWithin,
+  rectIntersection,
   getFirstCollision
 } from '@dnd-kit/core'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { arrayMove } from '@dnd-kit/sortable'
+import { arrayMove, defaultAnimateLayoutChanges } from '@dnd-kit/sortable'
 import Column from './ListColumns/Column/Column'
 import Card from './ListColumns/Column/ListCards/Card/Card'
 import { cloneDeep, isEmpty } from 'lodash'
@@ -168,7 +169,7 @@ function BoardContent({ board }) {
           )
           // Nếu vừa kéo card đi mà column rỗng thì thêm placeholder card vào để giữ chỗ, fix bug lỗi không kéo card vào được khi column rỗng
           if (isEmpty(nextActiveColumn.cards)) {
-            nextActiveColumn.cards = [generatePlaceholderCard(nextActiveColumn)]
+            generatePlaceholderCard(nextActiveColumn)
           }
           // Cập nhật lại cardOrderIds của cột
           nextActiveColumn.cardOrderIds = nextActiveColumn.cards.map(
@@ -180,10 +181,6 @@ function BoardContent({ board }) {
           // Loại bỏ thẻ được kéo có thể đã được thêm vào trước đó
           nextOverColumn.cards = nextOverColumn.cards.filter(
             (card) => card._id !== activeDragCardID
-          )
-          // Xóa đi các placeholder card đã tồn tại để tránh rò rỉ dữ liệu
-          nextOverColumn.cards = nextOverColumn.cards.filter(
-            (card) => !card?.FE_PlaceholderCard
           )
           // Thêm thẻ được kéo vào cột mới (over column)
           nextOverColumn.cards = nextOverColumn.cards.toSpliced(
