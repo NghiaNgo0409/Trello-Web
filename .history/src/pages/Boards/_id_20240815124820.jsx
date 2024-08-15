@@ -10,9 +10,8 @@ function Board() {
   const [board, setBoard] = useState(null)
   useEffect(() => {
     const boardId = '66ae232c72d66349e03ae89d'
-    fetchBoardDetailsAPI(boardId).then((board) => {
-      setBoard(board)
-    })
+    const board = fetchBoardDetailsAPI(boardId)
+    setBoard(board)
   }, [])
   return (
     <Container disableGutters maxWidth={false} sx={{ height: '100vh' }}>
