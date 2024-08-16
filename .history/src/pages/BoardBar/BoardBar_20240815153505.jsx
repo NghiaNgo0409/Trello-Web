@@ -45,7 +45,7 @@ function BoardBar({ board }) {
       }}
     >
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-        <Tooltip title={board?.description}>
+        <Tooltip>
           <Chip
             sx={MENU_STYLES}
             icon={<DashboardIcon />}
