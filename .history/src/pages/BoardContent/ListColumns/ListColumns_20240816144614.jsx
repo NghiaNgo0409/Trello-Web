@@ -3,6 +3,8 @@ import Column from './Column/Column'
 import Button from '@mui/material/Button'
 import NoteAddIcon from '@mui/icons-material/NoteAdd'
 import TextField from '@mui/material/TextField'
+import InputAdornment from '@mui/material/InputAdornment'
+import SearchIcon from '@mui/icons-material/Search'
 import CloseIcon from '@mui/icons-material/Close'
 
 import {
@@ -15,14 +17,6 @@ function ListColumns({ columns }) {
   const [openCreateColumn, setOpenCreateColumn] = useState(false)
   const toggleCreateColumn = () => {
     setOpenCreateColumn(!openCreateColumn)
-  }
-  const [newColumnTitle, setNewColumnTitle] = useState('')
-  const addNewColumn = () => {
-    if (!newColumnTitle) {
-      return
-    }
-    toggleCreateColumn(!openCreateColumn)
-    setNewColumnTitle('')
   }
   return (
     <SortableContext
@@ -48,7 +42,6 @@ function ListColumns({ columns }) {
         {/* Add new column */}
         {!openCreateColumn ? (
           <Box
-            onClick={toggleCreateColumn}
             sx={{
               minWidth: '200px',
               maxWidth: '200px',
@@ -90,9 +83,11 @@ function ListColumns({ columns }) {
               size="small"
               variant="outlined"
               autoFocus
-              value={newColumnTitle}
-              onChange={(e) => setNewColumnTitle(e.target.value)}
+              // value={searchValue}
+              // onChange={(e) => setSearchValue(e.target.value)}
               sx={{
+                minWidth: 150,
+                maxWidth: 180,
                 '& label': {
                   color: 'white'
                 },
@@ -114,31 +109,22 @@ function ListColumns({ columns }) {
                   }
                 }
               }}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon sx={{ color: 'white' }} />
+                  </InputAdornment>
+                ),
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <CloseIcon
+                      sx={{ color: 'white', cursor: 'pointer' }}
+                      onClick={() => setSearchValue('')}
+                    />
+                  </InputAdornment>
+                )
+              }}
             />
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <Button
-                onClick={addNewColumn}
-                variant="contained"
-                color="success"
-                size="small"
-                sx={{
-                  boxShadow: 'none',
-                  border: '0.5px solid',
-                  borderColor: (theme) => theme.palette.success.main,
-                  '&:hover': { bgcolor: (theme) => theme.palette.success.main }
-                }}
-              >
-                Add Column
-              </Button>
-              <CloseIcon
-                sx={{
-                  color: 'white',
-                  cursor: 'pointer',
-                  '&:hover': { color: (theme) => theme.palette.warning.light }
-                }}
-                onClick={toggleCreateColumn}
-              />
-            </Box>
           </Box>
         )}
       </Box>

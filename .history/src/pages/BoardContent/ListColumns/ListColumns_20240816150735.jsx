@@ -3,6 +3,8 @@ import Column from './Column/Column'
 import Button from '@mui/material/Button'
 import NoteAddIcon from '@mui/icons-material/NoteAdd'
 import TextField from '@mui/material/TextField'
+import InputAdornment from '@mui/material/InputAdornment'
+import SearchIcon from '@mui/icons-material/Search'
 import CloseIcon from '@mui/icons-material/Close'
 
 import {
@@ -21,6 +23,7 @@ function ListColumns({ columns }) {
     if (!newColumnTitle) {
       return
     }
+    console.log(newColumnTitle)
     toggleCreateColumn(!openCreateColumn)
     setNewColumnTitle('')
   }
@@ -90,7 +93,7 @@ function ListColumns({ columns }) {
               size="small"
               variant="outlined"
               autoFocus
-              value={newColumnTitle}
+              // value={newColumnTitle}
               onChange={(e) => setNewColumnTitle(e.target.value)}
               sx={{
                 '& label': {

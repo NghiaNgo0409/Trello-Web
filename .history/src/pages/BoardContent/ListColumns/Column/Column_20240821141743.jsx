@@ -193,41 +193,34 @@ function Column({ column }) {
                 size="small"
                 variant="outlined"
                 autoFocus
-                data-no-dnd="true"
-                value={newCardTitle}
-                onChange={(e) => setNewCardTitle(e.target.value)}
+                value={newColumnTitle}
+                onChange={(e) => setNewColumnTitle(e.target.value)}
                 sx={{
                   '& label': {
-                    color: 'text.primary'
+                    color: 'white'
                   },
                   '& input': {
-                    color: (theme) => theme.palette.primary.main,
-                    bgcolor: (theme) =>
-                      theme.palette.mode === 'dark' ? '#333643' : 'white'
+                    color: 'white'
                   },
                   '& label.Mui-focused': {
-                    color: (theme) => theme.palette.primary.main
+                    color: 'white'
                   },
                   '.MuiOutlinedInput-root': {
                     '& fieldset': {
-                      borderColor: (theme) => theme.palette.primary.main
+                      borderColor: 'white'
                     },
                     '&:hover fieldset': {
-                      borderColor: (theme) => theme.palette.primary.main
+                      borderColor: 'white'
                     },
                     '&.Mui-focused fieldset': {
-                      borderColor: (theme) => theme.palette.primary.main
+                      borderColor: 'white'
                     }
-                  },
-                  '& .MuiOutlineInput-input': {
-                    borderRadius: 1
                   }
                 }}
               />
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                 <Button
-                  data-no-dnd="true"
-                  onClick={addNewCard}
+                  onClick={addNewColumn}
                   variant="contained"
                   color="success"
                   size="small"
@@ -240,14 +233,15 @@ function Column({ column }) {
                     }
                   }}
                 >
-                  Add
+                  Add Column
                 </Button>
                 <CloseIcon
                   sx={{
-                    color: (theme) => theme.palette.warning.light,
-                    cursor: 'pointer'
+                    color: 'white',
+                    cursor: 'pointer',
+                    '&:hover': { color: (theme) => theme.palette.warning.light }
                   }}
-                  onClick={toggleCreateCard}
+                  onClick={toggleCreateColumn}
                 />
               </Box>
             </Box>
