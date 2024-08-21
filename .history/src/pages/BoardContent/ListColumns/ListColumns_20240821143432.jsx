@@ -20,7 +20,6 @@ function ListColumns({ columns }) {
   const [newColumnTitle, setNewColumnTitle] = useState('')
   const addNewColumn = () => {
     if (!newColumnTitle) {
-      toast.error('Please enter Column title!', { position: 'bottom-left' })
       return
     }
     toggleCreateColumn(!openCreateColumn)

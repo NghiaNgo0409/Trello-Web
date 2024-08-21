@@ -57,7 +57,7 @@ function Column({ column }) {
   const [newCardTitle, setNewCardTitle] = useState('')
   const addNewCard = () => {
     if (!newCardTitle) {
-      toast.error('Please enter Card title!', { position: 'bottom-right' })
+      toast.error('Please enter Card title!', {position="bottom-right"})
       return
     }
     console.log(newCardTitle)
