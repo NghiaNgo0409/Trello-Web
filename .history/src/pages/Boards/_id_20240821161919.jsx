@@ -33,8 +33,8 @@ function Board() {
       boardId: board._id
     })
 
-    createdColumn.cards = [generatePlaceholderCard(createdColumn)]
-    createdColumn.cardOrderIds = [generatePlaceholderCard(createdColumn)._id]
+    column.cards = [generatePlaceholderCard(column)]
+    column.cardOrderIds = [generatePlaceholderCard(column)._id]
 
     const newBoard = { ...board }
     newBoard.columns.push(createdColumn)

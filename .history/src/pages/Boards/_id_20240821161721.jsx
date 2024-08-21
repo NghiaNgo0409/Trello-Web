@@ -19,8 +19,7 @@ function Board() {
     fetchBoardDetailsAPI(boardId).then((board) => {
       board.columns.forEach((column) => {
         if (isEmpty(column.cards)) {
-          column.cards = [generatePlaceholderCard(column)]
-          column.cardOrderIds = [generatePlaceholderCard(column)._id]
+          return generatePlaceholderCard()
         }
       })
       setBoard(board)
@@ -32,9 +31,7 @@ function Board() {
       ...newColumnData,
       boardId: board._id
     })
-
-    createdColumn.cards = [generatePlaceholderCard(createdColumn)]
-    createdColumn.cardOrderIds = [generatePlaceholderCard(createdColumn)._id]
+    console.log('createdColumn: ', createdColumn)
 
     const newBoard = { ...board }
     newBoard.columns.push(createdColumn)

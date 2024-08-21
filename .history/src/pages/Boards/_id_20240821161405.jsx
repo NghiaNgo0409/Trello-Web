@@ -9,20 +9,12 @@ import {
   createNewColumnAPI,
   fetchBoardDetailsAPI
 } from '~/apis'
-import { generatePlaceholderCard } from '~/utils/formatters'
-import { isEmpty } from 'lodash'
 
 function Board() {
   const [board, setBoard] = useState(null)
   useEffect(() => {
     const boardId = '66c59164aa1ee281b093d2a6'
     fetchBoardDetailsAPI(boardId).then((board) => {
-      board.columns.forEach((column) => {
-        if (isEmpty(column.cards)) {
-          column.cards = [generatePlaceholderCard(column)]
-          column.cardOrderIds = [generatePlaceholderCard(column)._id]
-        }
-      })
       setBoard(board)
     })
   }, [])
@@ -32,9 +24,7 @@ function Board() {
       ...newColumnData,
       boardId: board._id
     })
-
-    createdColumn.cards = [generatePlaceholderCard(createdColumn)]
-    createdColumn.cardOrderIds = [generatePlaceholderCard(createdColumn)._id]
+    console.log('createdColumn: ', createdColumn)
 
     const newBoard = { ...board }
     newBoard.columns.push(createdColumn)
@@ -50,13 +40,8 @@ function Board() {
     console.log('createdCard: ', createdCard)
 
     const newBoard = { ...board }
-    const columnToUpdate = newBoard.columns.find(
-      (column) => column._id === createdCard.columnId
-    )
-    if (columnToUpdate) {
-      columnToUpdate.cards.push(createdCard)
-      columnToUpdate.cardOrderIds.push(createdCard._id)
-    }
+    newBoard.columns.push(createdColumn)
+    newBoard.columnOrderIds.push(createdColumn._id)
     setBoard(newBoard)
   }
   return (

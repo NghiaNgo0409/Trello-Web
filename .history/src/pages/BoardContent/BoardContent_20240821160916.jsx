@@ -26,7 +26,7 @@ const ACTIVE_DRAG_ITEM_TYPE = {
   CARD: 'ACTIVE_DRAG_ITEM_CARD'
 }
 
-function BoardContent({ board, createNewColumn, createNewCard }) {
+function BoardContent({ board, createNewColumn }) {
   const mouseSensor = useSensor(MouseSensor, {
     activationConstraint: { distance: 10 }
   })

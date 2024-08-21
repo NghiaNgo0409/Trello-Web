@@ -60,14 +60,7 @@ function Column({ column, createNewCard }) {
       toast.error('Please enter Card title!', { position: 'bottom-right' })
       return
     }
-
-    const newCardData = {
-      title: newCardTitle,
-      columnId: column._id
-    }
-
-    createNewCard(newCardData)
-
+    console.log(newCardTitle)
     toggleCreateCard(!openCreateCard)
     setNewCardTitle('')
   }
@@ -162,6 +155,7 @@ function Column({ column, createNewCard }) {
 
         <ListCards
           cards={mapOrder(column?.cards, column?.cardOrderIds, '_id')}
+          createNewCard={createNewCard}
         />
         {/* Box footer */}
 

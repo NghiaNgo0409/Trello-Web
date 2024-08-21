@@ -51,11 +51,7 @@ function ListColumns({ columns, createNewColumn, createNewCard }) {
       >
         {/* Box column */}
         {columns.map((column) => (
-          <Column
-            key={column?._id}
-            column={column}
-            createNewCard={createNewCard}
-          />
+          <Column key={column?._id} column={column} />
         ))}
         {/* Add new column */}
         {!openCreateColumn ? (

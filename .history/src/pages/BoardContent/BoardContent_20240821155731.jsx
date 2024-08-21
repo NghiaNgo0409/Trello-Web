@@ -12,8 +12,8 @@ import {
   closestCorners,
   pointerWithin,
   getFirstCollision
-} from '@dnd-kit/core'
-import { MouseSensor, TouchSensor } from '~/customLibraries/DndKitSensors'
+} from '@dnd-kit/core',
+import { MouseSensor, TouchSensor } from '~/customLibraries/DnDKitSensors'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { arrayMove } from '@dnd-kit/sortable'
 import Column from './ListColumns/Column/Column'
@@ -26,7 +26,7 @@ const ACTIVE_DRAG_ITEM_TYPE = {
   CARD: 'ACTIVE_DRAG_ITEM_CARD'
 }
 
-function BoardContent({ board, createNewColumn, createNewCard }) {
+function BoardContent({ board, createNewColumn }) {
   const mouseSensor = useSensor(MouseSensor, {
     activationConstraint: { distance: 10 }
   })
@@ -289,7 +289,6 @@ function BoardContent({ board, createNewColumn, createNewCard }) {
         <ListColumns
           columns={orderedColumns}
           createNewColumn={createNewColumn}
-          createNewCard={createNewCard}
         />
         <DragOverlay dropAnimation={dropAnimation}>
           {!activeDragItemType && null}

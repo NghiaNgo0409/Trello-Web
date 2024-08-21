@@ -12,7 +12,7 @@ import {
 } from '@dnd-kit/sortable'
 import { useState } from 'react'
 
-function ListColumns({ columns, createNewColumn, createNewCard }) {
+function ListColumns({ columns }) {
   const [openCreateColumn, setOpenCreateColumn] = useState(false)
   const toggleCreateColumn = () => {
     setOpenCreateColumn(!openCreateColumn)
@@ -27,8 +27,6 @@ function ListColumns({ columns, createNewColumn, createNewCard }) {
     const newColumnData = {
       title: newColumnTitle
     }
-
-    createNewColumn(newColumnData)
     toggleCreateColumn(!openCreateColumn)
     setNewColumnTitle('')
   }
@@ -51,11 +49,7 @@ function ListColumns({ columns, createNewColumn, createNewCard }) {
       >
         {/* Box column */}
         {columns.map((column) => (
-          <Column
-            key={column?._id}
-            column={column}
-            createNewCard={createNewCard}
-          />
+          <Column key={column?._id} column={column} />
         ))}
         {/* Add new column */}
         {!openCreateColumn ? (

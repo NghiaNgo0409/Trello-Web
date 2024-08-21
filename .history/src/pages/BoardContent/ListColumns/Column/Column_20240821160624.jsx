@@ -61,13 +61,6 @@ function Column({ column, createNewCard }) {
       return
     }
 
-    const newCardData = {
-      title: newCardTitle,
-      columnId: column._id
-    }
-
-    createNewCard(newCardData)
-
     toggleCreateCard(!openCreateCard)
     setNewCardTitle('')
   }
