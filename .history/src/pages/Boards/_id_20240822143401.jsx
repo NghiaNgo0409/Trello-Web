@@ -8,28 +8,20 @@ import {
   createNewCardAPI,
   createNewColumnAPI,
   fetchBoardDetailsAPI,
-  updateBoardDetailsAPI,
-  updateColumnDetailsAPI
+  updateBoardDetailsAPI
 } from '~/apis'
 import { generatePlaceholderCard } from '~/utils/formatters'
 import { isEmpty } from 'lodash'
-import { mapOrder } from '~/utils/sorts'
-import Box from '@mui/material/Box'
-import CircularProgress from '@mui/material/CircularProgress'
-import { Typography } from '@mui/material'
 
 function Board() {
   const [board, setBoard] = useState(null)
   useEffect(() => {
     const boardId = '66c59164aa1ee281b093d2a6'
     fetchBoardDetailsAPI(boardId).then((board) => {
-      board.columns = mapOrder(board?.columns, board?.columnOrderIds, '_id')
       board.columns.forEach((column) => {
         if (isEmpty(column.cards)) {
           column.cards = [generatePlaceholderCard(column)]
           column.cardOrderIds = [generatePlaceholderCard(column)._id]
-        } else {
-          column.cards = mapOrder(column?.cards, column?.cardOrderIds, '_id')
         }
       })
       setBoard(board)
@@ -82,42 +74,7 @@ function Board() {
     })
   }
 
-  const moveCardInSameColumn = (
-    dndOrderedCards,
-    dndOrderedCardsIds,
-    columnId
-  ) => {
-    const newBoard = { ...board }
-    const columnToUpdate = newBoard.columns.find(
-      (column) => column._id === columnId
-    )
-    if (columnToUpdate) {
-      columnToUpdate.cards = dndOrderedCards
-      columnToUpdate.cardOrderIds = dndOrderedCardsIds
-    }
-    setBoard(newBoard)
-
-    updateColumnDetailsAPI(columnId, {
-      cardOrderIds: dndOrderedCardsIds
-    })
-  }
-
-  if (!board) {
-    return (
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          width: '100vw',
-          height: '100vh'
-        }}
-      >
-        <CircularProgress />
-        <Typography>Loading Board...</Typography>
-      </Box>
-    )
-  }
+  const moveCardInSameColumn = (dndOrderedCards, dndOrderedCardsIds) => {}
 
   return (
     <Container disableGutters maxWidth={false} sx={{ height: '100vh' }}>

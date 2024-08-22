@@ -15,8 +15,6 @@ import { generatePlaceholderCard } from '~/utils/formatters'
 import { isEmpty } from 'lodash'
 import { mapOrder } from '~/utils/sorts'
 import Box from '@mui/material/Box'
-import CircularProgress from '@mui/material/CircularProgress'
-import { Typography } from '@mui/material'
 
 function Board() {
   const [board, setBoard] = useState(null)
@@ -104,17 +102,10 @@ function Board() {
 
   if (!board) {
     return (
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          width: '100vw',
-          height: '100vh'
-        }}
-      >
-        <CircularProgress />
-        <Typography>Loading Board...</Typography>
+      <Box>
+        <Box sx={{ display: 'flex' }}>
+          <CircularProgress />
+        </Box>
       </Box>
     )
   }

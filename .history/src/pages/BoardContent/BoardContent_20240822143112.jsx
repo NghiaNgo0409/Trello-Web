@@ -98,7 +98,7 @@ function BoardContent({
   //   useState(null)
 
   useEffect(() => {
-    setOrderedColumns(board.columns)
+    setOrderedColumns(mapOrder(board?.columns, board?.columnOrderIds, '_id'))
   }, [board])
 
   //Hàm tìm column của card bằng cardID
@@ -239,7 +239,6 @@ function BoardContent({
           oldCardIndex,
           newCardIndex
         )
-        const dndOrderedCardsIds = dndOrderedCards.map((card) => card._id)
         setOrderedColumns((prevColumns) => {
           const targetColumn = prevColumns.find(
             (column) => column._id === overColumn._id
@@ -249,12 +248,6 @@ function BoardContent({
           targetColumn.cardOrderIds = targetColumn.cards.map((card) => card._id)
           return prevColumns
         })
-
-        moveCardInSameColumn(
-          dndOrderedCards,
-          dndOrderedCardsIds,
-          activeColumn._id
-        )
       }
     }
 

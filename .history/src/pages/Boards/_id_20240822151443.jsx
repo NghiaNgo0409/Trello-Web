@@ -16,7 +16,6 @@ import { isEmpty } from 'lodash'
 import { mapOrder } from '~/utils/sorts'
 import Box from '@mui/material/Box'
 import CircularProgress from '@mui/material/CircularProgress'
-import { Typography } from '@mui/material'
 
 function Board() {
   const [board, setBoard] = useState(null)
@@ -114,7 +113,6 @@ function Board() {
         }}
       >
         <CircularProgress />
-        <Typography>Loading Board...</Typography>
       </Box>
     )
   }

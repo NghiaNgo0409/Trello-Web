@@ -21,9 +21,9 @@ export const createNewColumnAPI = async (newColumnData) => {
   return response.data
 }
 
-export const updateColumnDetailsAPI = async (columnId, updateData) => {
+export const updateBoardDetailsAPI = async (boardId, updateData) => {
   const response = await axios.put(
-    `${API_ROOT}/v1/columns/${columnId}`,
+    `${API_ROOT}/v1/boards/${boardId}`,
     updateData
   )
   return response.data

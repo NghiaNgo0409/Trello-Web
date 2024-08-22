@@ -160,9 +160,7 @@ function Column({ column, createNewCard }) {
         </Box>
         {/* Box list card */}
 
-        <ListCards
-          cards={mapOrder(column?.cards, column?.cardOrderIds, '_id')}
-        />
+        <ListCards cards={column.cards} />
         {/* Box footer */}
 
         <Box
