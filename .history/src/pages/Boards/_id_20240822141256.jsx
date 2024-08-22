@@ -7,8 +7,7 @@ import { useEffect, useState } from 'react'
 import {
   createNewCardAPI,
   createNewColumnAPI,
-  fetchBoardDetailsAPI,
-  updateBoardDetailsAPI
+  fetchBoardDetailsAPI
 } from '~/apis'
 import { generatePlaceholderCard } from '~/utils/formatters'
 import { isEmpty } from 'lodash'
@@ -66,12 +65,8 @@ function Board() {
 
     const newBoard = { ...board }
     newBoard.columns = dndOrderedColumns
-    newBoard.columnOrderIds = dndOrderedColumnsIds
+    newBoard.columnOrderIds.push(createdColumn._id)
     setBoard(newBoard)
-
-    await updateBoardDetailsAPI(newBoard._id, {
-      columnOrderIds: newBoard.columnOrderIds
-    })
   }
 
   return (

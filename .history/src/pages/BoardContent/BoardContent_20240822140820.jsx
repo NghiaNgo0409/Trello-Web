@@ -259,9 +259,6 @@ function BoardContent({ board, createNewColumn, createNewCard, moveColumns }) {
           oldColumnIndex,
           newColumnIndex
         )
-
-        moveColumns(dndOrderedColumns)
-
         setOrderedColumns(dndOrderedColumns)
       }
     }
