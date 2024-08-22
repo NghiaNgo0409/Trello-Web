@@ -8,7 +8,6 @@ import {
   createNewCardAPI,
   createNewColumnAPI,
   fetchBoardDetailsAPI,
-  moveCardToDifferentColumnsAPI,
   updateBoardDetailsAPI,
   updateColumnDetailsAPI
 } from '~/apis'
@@ -106,26 +105,8 @@ function Board() {
   const moveCardToDifferentColumn = (
     currentCardId,
     prevColumnId,
-    nextColumnId,
-    dndOrderedColumns
-  ) => {
-    const dndOrderedColumnsIds = dndOrderedColumns.map((c) => c._id)
-
-    const newBoard = { ...board }
-    newBoard.columns = dndOrderedColumns
-    newBoard.columnOrderIds = dndOrderedColumnsIds
-    setBoard(newBoard)
-
-    moveCardToDifferentColumnsAPI({
-      currentCardId,
-      prevColumnId,
-      prevCardOrderIds: dndOrderedColumns.find((c) => c._id === prevColumnId)
-        ?.cardOrderIds,
-      nextColumnId,
-      nextCardOrderIds: dndOrderedColumns.find((c) => c._id === nextColumnId)
-        ?.cardOrderIds
-    })
-  }
+    nextColumnId
+  ) => {}
 
   if (!board) {
     return (

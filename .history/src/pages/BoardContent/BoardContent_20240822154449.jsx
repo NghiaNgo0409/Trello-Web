@@ -204,13 +204,6 @@ function BoardContent({
             (card) => card._id
           )
         }
-
-        moveCardToDifferentColumn(
-          activeDragItemID,
-          activeColumn._id,
-          overColumn._id,
-          nextColumns
-        )
         return nextColumns
       })
     }

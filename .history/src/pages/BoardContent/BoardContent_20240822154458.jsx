@@ -209,7 +209,7 @@ function BoardContent({
           activeDragItemID,
           activeColumn._id,
           overColumn._id,
-          nextColumns
+          overColumn
         )
         return nextColumns
       })

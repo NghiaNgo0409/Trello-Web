@@ -123,7 +123,6 @@ function Board() {
         ?.cardOrderIds,
       nextColumnId,
       nextCardOrderIds: dndOrderedColumns.find((c) => c._id === nextColumnId)
-        ?.cardOrderIds
     })
   }
 

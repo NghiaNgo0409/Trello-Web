@@ -120,9 +120,6 @@ function Board() {
       currentCardId,
       prevColumnId,
       prevCardOrderIds: dndOrderedColumns.find((c) => c._id === prevColumnId)
-        ?.cardOrderIds,
-      nextColumnId,
-      nextCardOrderIds: dndOrderedColumns.find((c) => c._id === nextColumnId)
         ?.cardOrderIds
     })
   }

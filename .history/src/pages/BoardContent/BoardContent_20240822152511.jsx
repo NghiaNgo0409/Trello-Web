@@ -204,13 +204,6 @@ function BoardContent({
             (card) => card._id
           )
         }
-
-        moveCardToDifferentColumn(
-          activeDragItemID,
-          activeColumn._id,
-          overColumn._id,
-          nextColumns
-        )
         return nextColumns
       })
     }
@@ -233,7 +226,12 @@ function BoardContent({
 
       // Kéo card khác column thì
       if (activeColumn._id != overColumn._id) {
-        return
+        moveCardToDifferentColumn(
+          activeDragItemID,
+          activeColumn._id,
+          overColumn._id,
+          overColumn
+        )
         // Kéo card trong cùng column thì
       } else {
         const oldCardIndex = overColumn?.cards.findIndex(
